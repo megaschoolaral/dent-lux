@@ -40,6 +40,20 @@
   .screen { display:none; min-height:100vh; }
   .screen.active { display:flex; flex-direction:column; }
 
+  /* ========== DONE ========== */
+  #done {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 64px 24px;
+    background: linear-gradient(160deg, #FDFAF5 0%, #F7F0E0 60%, #FDFAF5 100%);
+  }
+  .done-inner { max-width: 400px; }
+  .done-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+  .done-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--cream); margin-bottom: 16px; }
+  .done-text { color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+  .done-sub { color: var(--muted); font-size: .9rem; line-height: 1.7; }
+
   /* ========== INTRO ========== */
   #intro {
     align-items: center;
@@ -833,6 +847,16 @@
   <span class="watermark-text">@qazyna_darimbet</span>
 </a>
 
+<!-- ===== DONE ===== -->
+<div id="done" class="screen">
+  <div class="done-inner">
+    <div class="done-icon">✦</div>
+    <h2 class="done-title">Тест өтіп қойылды</h2>
+    <p class="done-text">Сіз бұл тестті бұрын өткіздіңіз.<br>Әр адам тек бір рет қана өте алады.</p>
+    <p class="done-sub">Сұрақтар болса, Instagram-да хабарласыңыз:<br><a href="https://instagram.com/qazyna_darimbet" target="_blank" style="color:var(--gold)">@qazyna_darimbet</a></p>
+  </div>
+</div>
+
 <!-- ===== INTRO ===== -->
 <div id="intro" class="screen active">
   <div class="intro-inner">
@@ -1027,6 +1051,11 @@ const CATEGORIES = {
 };
 
 let current = 0;
+if (localStorage.getItem('aqsha_test_done')) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('done').classList.add('active');
+}
+
 let answers = new Array(20).fill(null);
 
 function startQuiz() {
@@ -1093,6 +1122,7 @@ function retryQuiz() {
 }
 
 function showResult() {
+  localStorage.setItem('aqsha_test_done', '1');
   show('result');
 
   let total = 0;
