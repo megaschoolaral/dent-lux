@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DENT LUX — Премиум стоматология Алматы</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+:root {
+  --cream:   #F2EDE6;
+  --cream2:  #E8E0D5;
+  --warm:    #D4C9B8;
+  --choco:   #1C1410;
+  --choco2:  #261C15;
+  --choco3:  #33251C;
+  --bronze:  #A0714F;
+  --bronze2: #C49A72;
+  --bronze3: #D4B08A;
+  --muted:   #7A6A5A;
+  --text:    #2E1F14;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* TOPBAR */
+.topbar {
+  background: var(--choco);
+  padding: 10px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--warm);
+  letter-spacing: 0.4px;
+}
+.topbar a { color: var(--warm); text-decoration:none; transition: color 0.3s; }
+.topbar a:hover { color: var(--bronze3); }
+.lang-switcher { display:flex; gap:4px; }
+.lang-btn {
+  padding: 4px 12px;
+  background: transparent;
+  border: 1px solid rgba(160,113,79,0.35);
+  color: var(--warm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: all 0.25s;
+}
+.lang-btn:hover, .lang-btn.active {
+  background: var(--bronze);
+  border-color: var(--bronze);
+  color: var(--cream);
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--cream);
+  border-bottom: 1px solid var(--cream2);
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: var(--choco);
+  text-transform: uppercase;
+}
+.logo sup {
+  font-size: 11px; letter-spacing: 2px;
+  color: var(--bronze); font-weight: 400;
+  vertical-align: super; margin-left: 2px;
+}
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px; font-weight: 400;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content:''; position:absolute;
+  bottom:-4px; left:0;
+  width:0; height:1px;
+  background: var(--bronze);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--bronze); }
+.nav-links a:hover::after { width:100%; }
+.btn-book {
+  padding: 12px 32px;
+  background: var(--choco);
+  color: var(--bronze3);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; border-radius: 1px;
+  transition: all 0.3s;
+}
+.btn-book:hover { background: var(--bronze); color: var(--cream); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: var(--choco);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.hero-left {
+  padding: 100px 64px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--bronze2); margin-bottom: 48px;
+}
+.hero-tag::before { content:''; width:32px; height:1px; background: var(--bronze2); }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(50px, 5vw, 76px);
+  font-weight: 300; line-height: 1.08;
+  color: var(--cream); margin-bottom: 32px;
+}
+.hero h1 em { font-style: italic; color: var(--bronze3); }
+.hero h1 strong { font-weight: 600; display: block; }
+.hero-desc {
+  font-size: 15px; color: var(--warm);
+  line-height: 1.8; font-weight: 300;
+  max-width: 380px; margin-bottom: 56px;
+}
+.hero-actions { display:flex; gap:16px; align-items:center; }
+.btn-hero {
+  padding: 16px 40px;
+  background: var(--bronze);
+  color: var(--cream); border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; border-radius: 1px;
+  transition: all 0.35s;
+}
+.btn-hero:hover {
+  background: var(--bronze3); color: var(--choco);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(160,113,79,0.3);
+}
+.hero-link {
+  font-size: 12px; letter-spacing: 1.5px;
+  color: var(--muted); text-transform: uppercase;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+  transition: color 0.3s;
+}
+.hero-link:hover { color: var(--bronze2); }
+.hero-link span { transition: transform 0.3s; display:inline-block; }
+.hero-link:hover span { transform: translateX(4px); }
+
+/* HERO RIGHT */
+.hero-right {
+  background: var(--choco2);
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  border-left: 1px solid rgba(242,237,230,0.05);
+}
+.stat-row {
+  padding: 30px 48px;
+  border-top: 1px solid rgba(242,237,230,0.06);
+  display: flex; align-items: baseline; gap: 16px;
+}
+.stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 300;
+  color: var(--bronze3); line-height: 1;
+}
+.stat-unit { color: var(--bronze2); font-size: 18px; font-family: 'Cormorant Garamond', serif; }
+.stat-text { color: var(--warm); font-size: 13px; font-weight: 300; }
+
+/* OFFER */
+.offer {
+  background: var(--choco2);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  position: relative;
+}
+.offer::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:1px;
+  background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+}
+.offer-left {
+  padding: 96px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.offer-eyebrow {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--bronze2); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.offer-eyebrow::before { content:''; width:24px; height:1px; background: var(--bronze2); }
+.offer-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 3.8vw, 54px);
+  font-weight: 300; color: var(--cream);
+  line-height: 1.12; margin-bottom: 24px;
+}
+.offer-left h2 em { font-style: italic; color: var(--bronze3); }
+.offer-left p {
+  color: var(--warm); font-size: 15px;
+  line-height: 1.8; font-weight: 300;
+  max-width: 400px; margin-bottom: 36px;
+}
+.offer-checks { display:flex; flex-direction:column; gap:12px; margin-bottom: 40px; }
+.offer-check-row {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 14px; color: var(--warm); font-weight: 300;
+}
+.chk {
+  width: 18px; height: 18px;
+  border: 1px solid var(--bronze);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: var(--bronze3); flex-shrink: 0;
+}
+
+/* OFFER RIGHT */
+.offer-right {
+  display: flex; align-items: center; justify-content: center;
+  padding: 96px 48px;
+  border-left: 1px solid rgba(242,237,230,0.06);
+}
+.offer-badge {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 20px; text-align: center;
+}
+.offer-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 160px; font-weight: 300; line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--bronze);
+  letter-spacing: -6px;
+}
+.offer-pct {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px; color: var(--bronze3);
+  font-weight: 300; margin-top: -28px; display: block;
+}
+.offer-cap {
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted);
+}
+.timer {
+  display: flex; gap: 12px; margin-top: 4px;
+}
+.t-blk { text-align: center; }
+.t-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; color: var(--cream);
+  font-weight: 300; display: block; line-height: 1;
+}
+.t-lbl {
+  font-size: 9px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted);
+}
+.t-sep {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px; color: var(--bronze);
+  align-self: flex-start; margin-top: 2px;
+}
+
+/* SECTIONS */
+.sec { padding: 112px 48px; }
+.sec-alt { background: var(--cream2); }
+.sec-dark { background: var(--choco); color: var(--cream); }
+
+.sec-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--bronze); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.sec-label::before { content:''; width:24px; height:1px; background: var(--bronze); }
+.sec-dark .sec-label { color: var(--bronze3); }
+.sec-dark .sec-label::before { background: var(--bronze3); }
+
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 3.5vw, 52px);
+  font-weight: 300; line-height: 1.12;
+  margin-bottom: 16px;
+}
+.sec-title em { font-style: italic; color: var(--bronze); }
+.sec-dark .sec-title em { color: var(--bronze3); }
+
+.sec-sub {
+  font-size: 15px; color: var(--muted);
+  font-weight: 300; line-height: 1.8;
+  max-width: 480px; margin-bottom: 64px;
+}
+.sec-dark .sec-sub { color: var(--warm); }
+
+/* SERVICES GRID */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: var(--cream2);
+  border: 1px solid var(--cream2);
+}
+.svc {
+  background: var(--cream); padding: 44px 36px;
+  position: relative; overflow: hidden;
+  transition: background 0.4s;
+}
+.svc::after {
+  content:''; position:absolute;
+  left:0; bottom:0; width:0; height:2px;
+  background: var(--bronze);
+  transition: width 0.5s ease;
+}
+.svc:hover { background: #EDE7DE; }
+.svc:hover::after { width:100%; }
+.svc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; color: var(--bronze);
+  letter-spacing: 2px; margin-bottom: 28px;
+}
+.svc h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 400;
+  color: var(--choco); margin-bottom: 12px;
+}
+.svc p { font-size: 13px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+/* DOCTORS */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+}
+.doc-card { border-radius: 1px; overflow: hidden; }
+.doc-photo {
+  height: 300px; background: var(--choco3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 86px; position: relative;
+}
+.doc-overlay {
+  position:absolute; inset:0;
+  background: linear-gradient(to bottom, transparent 40%, var(--choco) 100%);
+}
+.doc-body {
+  padding: 28px 24px 32px;
+  background: var(--choco2);
+  border-top: 1px solid rgba(160,113,79,0.12);
+}
+.doc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 400;
+  color: var(--cream); margin-bottom: 6px; line-height: 1.2;
+}
+.doc-spec {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--bronze2); margin-bottom: 12px;
+}
+.doc-exp { font-size: 13px; color: var(--warm); font-weight: 300; line-height: 1.6; }
+
+/* REVIEWS */
+.rev-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+.rev {
+  background: var(--cream);
+  border: 1px solid var(--cream2);
+  padding: 40px 36px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.sec-alt .rev { background: #F5F0E9; }
+.rev:hover { border-color: var(--bronze); transform: translateY(-4px); }
+.rev-q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 60px; color: var(--bronze); opacity: 0.22;
+  line-height: 0.6; margin-bottom: 20px; display: block;
+}
+.rev-stars { color: var(--bronze); font-size: 13px; letter-spacing: 3px; margin-bottom: 18px; }
+.rev-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 300; font-style: italic;
+  color: var(--choco); line-height: 1.7; margin-bottom: 28px;
+}
+.rev-person { display:flex; align-items:center; gap:14px; }
+.rev-av {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--choco3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; color: var(--bronze3); flex-shrink: 0;
+}
+.rev-name { font-size: 14px; font-weight: 500; color: var(--choco); }
+.rev-date { font-size: 11px; color: var(--muted); }
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+.c-item {
+  display: flex; gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--cream2);
+}
+.c-item:first-child { border-top: 1px solid var(--cream2); }
+.c-ico {
+  width: 40px; height: 40px; background: var(--choco);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; border-radius: 1px; flex-shrink: 0;
+}
+.c-lbl {
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--bronze); margin-bottom: 6px;
+}
+.c-val { font-size: 15px; color: var(--choco); line-height: 1.6; font-weight: 300; }
+
+/* FORM */
+.fg { margin-bottom: 20px; }
+.fg label {
+  display: block; font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+}
+.fg input, .fg select, .fg textarea {
+  width: 100%; background: var(--cream2);
+  border: 1px solid var(--warm);
+  padding: 14px 18px; color: var(--choco);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 300;
+  border-radius: 1px; outline: none;
+  transition: border-color 0.3s, background 0.3s;
+  -webkit-appearance: none;
+}
+.fg input:focus, .fg select:focus, .fg textarea:focus {
+  border-color: var(--bronze); background: #EDE7DE;
+}
+.fg textarea { height: 110px; resize: vertical; }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.btn-submit {
+  width: 100%; padding: 18px;
+  background: var(--choco); color: var(--bronze3);
+  border: none; font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  cursor: pointer; border-radius: 1px;
+  transition: all 0.35s;
+}
+.btn-submit:hover { background: var(--bronze); color: var(--cream); transform: translateY(-1px); }
+
+/* MAP */
+.mapwrap { height: 420px; overflow: hidden; }
+.mapwrap iframe { width:100%; height:100%; border:none; filter: sepia(0.2) contrast(0.9); }
+
+/* FOOTER */
+footer {
+  background: var(--choco);
+  padding: 72px 48px 36px; color: var(--warm);
+}
+.foot-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 64px; padding-bottom: 64px;
+  border-bottom: 1px solid rgba(242,237,230,0.07);
+  margin-bottom: 36px;
+}
+.foot-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 300;
+  letter-spacing: 6px; color: var(--cream);
+  text-transform: uppercase; margin-bottom: 20px;
+}
+.foot-desc { font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 260px; }
+.foot-col h5 {
+  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--bronze2); margin-bottom: 24px;
+}
+.foot-col ul { list-style: none; }
+.foot-col li { margin-bottom: 12px; }
+.foot-col a {
+  color: var(--muted); text-decoration: none;
+  font-size: 13px; font-weight: 300;
+  transition: color 0.3s;
+}
+.foot-col a:hover { color: var(--bronze3); }
+.foot-btm {
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--muted);
+}
+
+/* MODAL */
+.overlay {
+  display: none; position: fixed; inset:0;
+  background: rgba(28,20,16,0.78);
+  backdrop-filter: blur(14px);
+  z-index: 1000; align-items: center; justify-content: center;
+}
+.overlay.open { display: flex; }
+.modal {
+  background: var(--cream);
+  width: 100%; max-width: 460px;
+  padding: 56px 48px; border-radius: 1px;
+  position: relative;
+  animation: mIn 0.4s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes mIn {
+  from { opacity:0; transform: scale(0.96) translateY(16px); }
+  to { opacity:1; transform: scale(1) translateY(0); }
+}
+.modal-x {
+  position: absolute; top: 20px; right: 24px;
+  background: none; border: none; color: var(--muted);
+  font-size: 20px; cursor: pointer; transition: color 0.3s; line-height:1;
+}
+.modal-x:hover { color: var(--bronze); }
+.modal-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--bronze); margin-bottom: 12px; }
+.modal h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px; font-weight: 300;
+  color: var(--choco); margin-bottom: 8px;
+}
+.modal-sub { font-size: 13px; color: var(--muted); margin-bottom: 32px; line-height: 1.6; }
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 40px; right: 48px;
+  background: var(--choco); color: var(--bronze3);
+  border: 1px solid rgba(160,113,79,0.3);
+  padding: 16px 28px; font-size: 13px;
+  z-index: 9000; opacity:0; transform: translateY(16px);
+  transition: all 0.4s; border-radius: 1px;
+}
+.toast.show { opacity:1; transform: translateY(0); }
+
+/* LANG HELPERS */
+.il { display: none; }
+.il.on { display: inline; }
+[data-lang] { display: none; }
+[data-lang].on { display: block; }
+
+/* REVEAL */
+.rv { opacity:0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.rv.vis { opacity:1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .doc-grid { grid-template-columns: repeat(2,1fr); }
+  .svc-grid { grid-template-columns: repeat(2,1fr); }
+  .offer { grid-template-columns: 1fr; }
+  .offer-right { border-left: none; border-top: 1px solid rgba(242,237,230,0.06); }
+}
+@media (max-width: 768px) {
+  .topbar, nav { padding: 12px 20px; }
+  .sec { padding: 72px 20px; }
+  .hero-left { padding: 80px 24px; }
+  .svc-grid, .rev-grid, .doc-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .foot-top { grid-template-columns: 1fr; gap: 40px; }
+  .nav-links { display: none; }
+  .frow { grid-template-columns: 1fr; }
+  .offer-left { padding: 60px 24px; }
+  .offer-right { padding: 60px 24px; }
+  .modal { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast">Заявка принята — ждите звонка ✦</div>
+
+<!-- MODAL -->
+<div class="overlay" id="modal">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div class="modal-tag">
+      <span class="il on" data-li="ru">Запись онлайн</span>
+      <span class="il" data-li="kz">Онлайн жазылу</span>
+      <span class="il" data-li="en">Online Booking</span>
+    </div>
+    <h2>
+      <span class="il on" data-li="ru">Записаться на приём</span>
+      <span class="il" data-li="kz">Қабылдауға жазылу</span>
+      <span class="il" data-li="en">Book an Appointment</span>
+    </h2>
+    <p class="modal-sub">
+      <span class="il on" data-li="ru">Перезвоним в течение 15 минут и подберём удобное время</span>
+      <span class="il" data-li="kz">15 минут ішінде қайта хабарласамыз</span>
+      <span class="il" data-li="en">We'll call back within 15 minutes</span>
+    </p>
+    <div class="fg">
+      <label><span class="il on" data-li="ru">Имя</span><span class="il" data-li="kz">Аты</span><span class="il" data-li="en">Name</span></label>
+      <input type="text" placeholder="Ваше имя">
+    </div>
+    <div class="fg">
+      <label><span class="il on" data-li="ru">Телефон</span><span class="il" data-li="kz">Телефон</span><span class="il" data-li="en">Phone</span></label>
+      <input type="tel" placeholder="+7 (___) ___-__-__">
+    </div>
+    <div class="fg">
+      <label><span class="il on" data-li="ru">Услуга</span><span class="il" data-li="kz">Қызмет</span><span class="il" data-li="en">Service</span></label>
+      <select>
+        <option>Имплантация</option>
+        <option>Отбеливание (−50%)</option>
+        <option>Брекеты / Invisalign</option>
+        <option>Лечение кариеса</option>
+        <option>Виниры</option>
+        <option>Детская стоматология</option>
+      </select>
+    </div>
+    <button class="btn-submit" onclick="submitForm()">
+      <span class="il on" data-li="ru">Отправить заявку</span>
+      <span class="il" data-li="kz">Өтінім жіберу</span>
+      <span class="il" data-li="en">Send Request</span>
+    </button>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>г. Алматы, ул. Байзакова 280 &ensp;·&ensp; <a href="tel:+77272345678">+7 (727) 234-56-78</a> &ensp;·&ensp; Пн–Сб 09:00–20:00</span>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('ru',this)">RU</button>
+    <button class="lang-btn" onclick="setLang('kz',this)">ҚАЗ</button>
+    <button class="lang-btn" onclick="setLang('en',this)">EN</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Dent<sup>lux</sup></div>
+  <ul class="nav-links">
+    <li><a href="#services"><span class="il on" data-li="ru">Услуги</span><span class="il" data-li="kz">Қызметтер</span><span class="il" data-li="en">Services</span></a></li>
+    <li><a href="#doctors"><span class="il on" data-li="ru">Врачи</span><span class="il" data-li="kz">Дәрігерлер</span><span class="il" data-li="en">Doctors</span></a></li>
+    <li><a href="#reviews"><span class="il on" data-li="ru">Отзывы</span><span class="il" data-li="kz">Пікірлер</span><span class="il" data-li="en">Reviews</span></a></li>
+    <li><a href="#contact"><span class="il on" data-li="ru">Контакты</span><span class="il" data-li="kz">Байланыс</span><span class="il" data-li="en">Contact</span></a></li>
+  </ul>
+  <button class="btn-book" onclick="openModal()">
+    <span class="il on" data-li="ru">Записаться</span>
+    <span class="il" data-li="kz">Жазылу</span>
+    <span class="il" data-li="en">Book Now</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <span class="il on" data-li="ru">Премиум стоматология · Алматы · 5 лет на рынке</span>
+      <span class="il" data-li="kz">Премиум стоматология · Алматы · Нарықта 5 жыл</span>
+      <span class="il" data-li="en">Premium Dentistry · Almaty · 5 Years on Market</span>
+    </div>
+    <h1>
+      <span class="il on" data-li="ru"><em>Улыбка,</em><strong>которой вы заслуживаете</strong></span>
+      <span class="il" data-li="kz"><em>Күлкі,</em><strong>сіз лайықтысыз</strong></span>
+      <span class="il" data-li="en"><em>The smile</em><strong>you deserve</strong></span>
+    </h1>
+    <p class="hero-desc">
+      <span class="il on" data-li="ru">Пять лет мы создаём безупречные улыбки в сердце Алматы. Европейские технологии, безболезненное лечение, результат на всю жизнь.</span>
+      <span class="il" data-li="kz">Бес жыл бойы Алматының жүрегінде мінсіз күлкілер жасап келеміз. Еуропалық технологиялар, ауырсыз емдеу.</span>
+      <span class="il" data-li="en">For five years we've crafted flawless smiles in the heart of Almaty. European technologies, painless treatment, lifetime results.</span>
+    </p>
+    <div class="hero-actions">
+      <button class="btn-hero" onclick="openModal()">
+        <span class="il on" data-li="ru">Записаться на приём</span>
+        <span class="il" data-li="kz">Қабылдауға жазылу</span>
+        <span class="il" data-li="en">Book Appointment</span>
+      </button>
+      <a href="#services" class="hero-link">
+        <span class="il on" data-li="ru">Наши услуги</span>
+        <span class="il" data-li="kz">Қызметтер</span>
+        <span class="il" data-li="en">Our Services</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-row"><div class="stat-n">5</div><div class="stat-unit">+</div><div class="stat-text"><span class="il on" data-li="ru">лет на рынке Казахстана</span><span class="il" data-li="kz">жыл нарықта</span><span class="il" data-li="en">years in market</span></div></div>
+    <div class="stat-row"><div class="stat-n">2 400</div><div class="stat-unit">+</div><div class="stat-text"><span class="il on" data-li="ru">довольных пациентов</span><span class="il" data-li="kz">риза пациент</span><span class="il" data-li="en">satisfied patients</span></div></div>
+    <div class="stat-row"><div class="stat-n">98</div><div class="stat-unit">%</div><div class="stat-text"><span class="il on" data-li="ru">рекомендуют нас</span><span class="il" data-li="kz">ұсынады</span><span class="il" data-li="en">recommend us</span></div></div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="offer">
+  <div class="offer-left">
+    <div class="offer-eyebrow">
+      <span class="il on" data-li="ru">Специальное предложение</span>
+      <span class="il" data-li="kz">Арнайы ұсыныс</span>
+      <span class="il" data-li="en">Special Offer</span>
+    </div>
+    <h2>
+      <span class="il on" data-li="ru">Голливудская улыбка<br><em>вдвое доступнее</em></span>
+      <span class="il" data-li="kz">Голливуд күлкісі<br><em>екі есе қолжетімді</em></span>
+      <span class="il" data-li="en">Hollywood smile<br><em>twice more affordable</em></span>
+    </h2>
+    <p>
+      <span class="il on" data-li="ru">Профессиональное отбеливание ZOOM 4 — клинически доказанный результат до 8 тонов светлее всего за 60 минут. Только при первом визите в DENT LUX.</span>
+      <span class="il" data-li="kz">ZOOM 4 кәсіби ағарту — 60 минутта 8 тонға дейін клиникалық дәлелденген нәтиже. Тек DENT LUX-қа бірінші сапарда.</span>
+      <span class="il" data-li="en">ZOOM 4 professional whitening — clinically proven result up to 8 shades lighter in just 60 minutes. First visit to DENT LUX only.</span>
+    </p>
+    <div class="offer-checks">
+      <div class="offer-check-row"><div class="chk">✦</div><span class="il on" data-li="ru">Безболезненно и безопасно для эмали</span><span class="il" data-li="kz">Эмальға ауырсыз және қауіпсіз</span><span class="il" data-li="en">Painless and safe for enamel</span></div>
+      <div class="offer-check-row"><div class="chk">✦</div><span class="il on" data-li="ru">Результат держится 2–3 года</span><span class="il" data-li="kz">Нәтиже 2–3 жыл сақталады</span><span class="il" data-li="en">Results last 2–3 years</span></div>
+      <div class="offer-check-row"><div class="chk">✦</div><span class="il on" data-li="ru">Домашний набор для поддержания в подарок</span><span class="il" data-li="kz">Сыйлыққа үй жинағы</span><span class="il" data-li="en">Home maintenance kit as a gift</span></div>
+    </div>
+    <button class="btn-hero" onclick="openModal()">
+      <span class="il on" data-li="ru">Записаться со скидкой 50%</span>
+      <span class="il" data-li="kz">50% жеңілдікпен жазылу</span>
+      <span class="il" data-li="en">Book with 50% Discount</span>
+    </button>
+  </div>
+  <div class="offer-right">
+    <div class="offer-badge">
+      <div><div class="offer-big">50</div><span class="offer-pct">%</span></div>
+      <div class="offer-cap">
+        <span class="il on" data-li="ru">скидка при первом визите</span>
+        <span class="il" data-li="kz">бірінші сапарда жеңілдік</span>
+        <span class="il" data-li="en">off on first visit</span>
+      </div>
+      <div class="timer">
+        <div class="t-blk"><span class="t-num" id="td">07</span><span class="t-lbl"><span class="il on" data-li="ru">дн</span><span class="il" data-li="kz">күн</span><span class="il" data-li="en">days</span></span></div>
+        <div class="t-sep">:</div>
+        <div class="t-blk"><span class="t-num" id="th">14</span><span class="t-lbl"><span class="il on" data-li="ru">ч</span><span class="il" data-li="kz">сағ</span><span class="il" data-li="en">hrs</span></span></div>
+        <div class="t-sep">:</div>
+        <div class="t-blk"><span class="t-num" id="tm">32</span><span class="t-lbl"><span class="il on" data-li="ru">мин</span><span class="il" data-li="kz">мин</span><span class="il" data-li="en">min</span></span></div>
+        <div class="t-sep">:</div>
+        <div class="t-blk"><span class="t-num" id="ts">00</span><span class="t-lbl"><span class="il on" data-li="ru">сек</span><span class="il" data-li="kz">сек</span><span class="il" data-li="en">sec</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="sec-label"><span class="il on" data-li="ru">Что мы делаем</span><span class="il" data-li="kz">Не жасаймыз</span><span class="il" data-li="en">What We Do</span></div>
+  <h2 class="sec-title"><span class="il on" data-li="ru">Наши <em>услуги</em></span><span class="il" data-li="kz">Біздің <em>қызметтер</em></span><span class="il" data-li="en">Our <em>Services</em></span></h2>
+  <p class="sec-sub"><span class="il on" data-li="ru">Полный спектр стоматологической помощи под одной крышей — от профилактики до полного восстановления.</span><span class="il" data-li="kz">Профилактикадан толық қалпына келтіруге дейін бір шаңырақ астындағы толық стоматологиялық қызмет.</span><span class="il" data-li="en">Full spectrum of dental care under one roof — from prevention to complete restoration.</span></p>
+  <div class="svc-grid">
+    <div class="svc rv"><div class="svc-num">01</div><h3><span class="il on" data-li="ru">Имплантация</span><span class="il" data-li="kz">Имплантация</span><span class="il" data-li="en">Implantation</span></h3><p><span class="il on" data-li="ru">Восстановление на Swiss-имплантах Nobel Biocare. Гарантия 10 лет. Протез за 3 дня.</span><span class="il" data-li="kz">Nobel Biocare имплантттарда қалпына келтіру. 10 жыл кепілдік.</span><span class="il" data-li="en">Restoration on Nobel Biocare Swiss implants. 10-year guarantee. Prosthesis in 3 days.</span></p></div>
+    <div class="svc rv"><div class="svc-num">02</div><h3><span class="il on" data-li="ru">Отбеливание ZOOM 4</span><span class="il" data-li="kz">ZOOM 4 ағарту</span><span class="il" data-li="en">ZOOM 4 Whitening</span></h3><p><span class="il on" data-li="ru">До 8 тонов за 60 минут. Безопасно для эмали. Результат на 2–3 года. −50% при первом визите.</span><span class="il" data-li="kz">60 минутта 8 тонға дейін. −50% бірінші сапарда.</span><span class="il" data-li="en">Up to 8 shades in 60 minutes. −50% on first visit.</span></p></div>
+    <div class="svc rv"><div class="svc-num">03</div><h3><span class="il on" data-li="ru">Виниры e.max</span><span class="il" data-li="kz">e.max Винирлер</span><span class="il" data-li="en">e.max Veneers</span></h3><p><span class="il on" data-li="ru">Фарфоровые и e.max виниры 0.3 мм. Голливудская улыбка без обточки зубов.</span><span class="il" data-li="kz">0.3 мм e.max винирлер. Тіс тартпай Голливуд күлкісі.</span><span class="il" data-li="en">Porcelain & e.max veneers 0.3mm. Hollywood smile without grinding.</span></p></div>
+    <div class="svc rv"><div class="svc-num">04</div><h3><span class="il on" data-li="ru">Ортодонтия</span><span class="il" data-li="kz">Ортодонтия</span><span class="il" data-li="en">Orthodontics</span></h3><p><span class="il on" data-li="ru">Брекеты и Invisalign. Исправление прикуса незаметно и без боли.</span><span class="il" data-li="kz">Брекеттер мен Invisalign. Байқалмайтын ауырсыз тіс түзету.</span><span class="il" data-li="en">Braces and Invisalign. Painless bite correction.</span></p></div>
+    <div class="svc rv"><div class="svc-num">05</div><h3><span class="il on" data-li="ru">Лечение и терапия</span><span class="il" data-li="kz">Емдеу мен терапия</span><span class="il" data-li="en">Treatment & Therapy</span></h3><p><span class="il on" data-li="ru">Кариес, пульпит, пародонтит. Лазерная терапия. Анестезия без боли.</span><span class="il" data-li="kz">Кариес, пульпит, пародонтит. Лазерлік терапия. Ауырсыз анестезия.</span><span class="il" data-li="en">Caries, pulpitis, periodontitis. Laser therapy. Painless anesthesia.</span></p></div>
+    <div class="svc rv"><div class="svc-num">06</div><h3><span class="il on" data-li="ru">Детская стоматология</span><span class="il" data-li="kz">Балалар стоматологиясы</span><span class="il" data-li="en">Pediatric Dentistry</span></h3><p><span class="il on" data-li="ru">Мягкий подход с 2 лет. Игровая атмосфера. Лечение с закисью азота.</span><span class="il" data-li="kz">2 жастан жұмсақ тәсіл. Ойын атмосферасы. Азот тотығымен емдеу.</span><span class="il" data-li="en">Gentle approach from age 2. Playful atmosphere. Nitrous oxide.</span></p></div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section class="sec sec-dark" id="doctors">
+  <div class="sec-label"><span class="il on" data-li="ru">Наша команда</span><span class="il" data-li="kz">Біздің команда</span><span class="il" data-li="en">Our Team</span></div>
+  <h2 class="sec-title"><span class="il on" data-li="ru"><em>Врачи,</em> которым доверяют</span><span class="il" data-li="kz"><em>Дәрігерлер,</em> оларға сенеді</span><span class="il" data-li="en"><em>Doctors</em> you can trust</span></h2>
+  <p class="sec-sub"><span class="il on" data-li="ru">Сертифицированные специалисты с международной практикой и ежегодным повышением квалификации.</span><span class="il" data-li="kz">Халықаралық тәжірибемен сертификатталған мамандар.</span><span class="il" data-li="en">Certified specialists with international practice and annual professional development.</span></p>
+  <div class="doc-grid">
+    <div class="doc-card rv"><div class="doc-photo">👨‍⚕️<div class="doc-overlay"></div></div><div class="doc-body"><div class="doc-name">Ахметов Санжар</div><div class="doc-spec"><span class="il on" data-li="ru">Гл. врач · Имплантолог</span><span class="il" data-li="kz">Бас дәрігер · Имплантолог</span><span class="il" data-li="en">Chief · Implantologist</span></div><div class="doc-exp"><span class="il on" data-li="ru">12 лет. Обучение в Германии и Израиле.</span><span class="il" data-li="kz">12 жыл. Германия мен Израильде.</span><span class="il" data-li="en">12 yrs. Trained in Germany & Israel.</span></div></div></div>
+    <div class="doc-card rv"><div class="doc-photo">👩‍⚕️<div class="doc-overlay"></div></div><div class="doc-body"><div class="doc-name">Нурланова Айгерим</div><div class="doc-spec"><span class="il on" data-li="ru">Ортодонт · Invisalign Gold</span><span class="il" data-li="kz">Ортодонт · Invisalign Gold</span><span class="il" data-li="en">Orthodontist · Invisalign Gold</span></div><div class="doc-exp"><span class="il on" data-li="ru">8 лет. Сертификат Invisalign Gold.</span><span class="il" data-li="kz">8 жыл. Invisalign Gold.</span><span class="il" data-li="en">8 yrs. Invisalign Gold certified.</span></div></div></div>
+    <div class="doc-card rv"><div class="doc-photo">👨‍⚕️<div class="doc-overlay"></div></div><div class="doc-body"><div class="doc-name">Джаксыбеков Данияр</div><div class="doc-spec"><span class="il on" data-li="ru">Эстетика · Виниры e.max</span><span class="il" data-li="kz">Эстетика · e.max винирлер</span><span class="il" data-li="en">Aesthetics · e.max Veneers</span></div><div class="doc-exp"><span class="il on" data-li="ru">9 лет. Специалист по эстетике.</span><span class="il" data-li="kz">9 жыл. Эстетика маманы.</span><span class="il" data-li="en">9 yrs. Aesthetics specialist.</span></div></div></div>
+    <div class="doc-card rv"><div class="doc-photo">👩‍⚕️<div class="doc-overlay"></div></div><div class="doc-body"><div class="doc-name">Сейткали Мадина</div><div class="doc-spec"><span class="il on" data-li="ru">Детский стоматолог</span><span class="il" data-li="kz">Балалар стоматологы</span><span class="il" data-li="en">Pediatric Dentist</span></div><div class="doc-exp"><span class="il on" data-li="ru">6 лет. Закись азота. Мягкий подход.</span><span class="il" data-li="kz">6 жыл. Азот тотығы. Жұмсақ тәсіл.</span><span class="il" data-li="en">6 yrs. Nitrous oxide. Gentle approach.</span></div></div></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec sec-alt" id="reviews">
+  <div class="sec-label"><span class="il on" data-li="ru">Пациенты о нас</span><span class="il" data-li="kz">Пациенттер біз туралы</span><span class="il" data-li="en">Patients About Us</span></div>
+  <h2 class="sec-title"><span class="il on" data-li="ru"><em>Отзывы</em></span><span class="il" data-li="kz"><em>Пікірлер</em></span><span class="il" data-li="en"><em>Reviews</em></span></h2>
+  <p class="sec-sub"><span class="il on" data-li="ru">Реальные истории людей, доверивших нам свою улыбку.</span><span class="il" data-li="kz">Күлкілерін бізге сенген адамдардың нақты тарихтары.</span><span class="il" data-li="en">Real stories of people who trusted us with their smile.</span></p>
+  <div class="rev-grid">
+    <div class="rev rv"><span class="rev-q">"</span><div class="rev-stars">★★★★★</div><p class="rev-text"><span class="il on" data-li="ru">Боялась стоматологов 15 лет. Здесь всё иначе — объяснял каждый шаг, не почувствовала анестезию. Виниры получились лучше, чем мечтала.</span><span class="il" data-li="kz">15 жыл стоматологтардан қорықтым. Мұнда бәрі басқаша. Винирлер армандағаннан жақсы шықты.</span><span class="il" data-li="en">Afraid of dentists for 15 years. Here it's different. The veneers turned out better than I dreamed.</span></p><div class="rev-person"><div class="rev-av">А</div><div><div class="rev-name">Алия Нурова</div><div class="rev-date"><span class="il on" data-li="ru">Март 2025</span><span class="il" data-li="kz">Наурыз 2025</span><span class="il" data-li="en">March 2025</span></div></div></div></div>
+    <div class="rev rv"><span class="rev-q">"</span><div class="rev-stars">★★★★★</div><p class="rev-text"><span class="il on" data-li="ru">Поставил два импланта. Всё прошло настолько чисто, что я был удивлён. Результатом доволен на 100%. Рекомендую без оговорок.</span><span class="il" data-li="kz">Екі имплант қойдырдым. Бәрі сонша таза өтті. Нәтижеге 100% риза.</span><span class="il" data-li="en">Got two implants. Everything went so cleanly. 100% satisfied. Recommend without reservations.</span></p><div class="rev-person"><div class="rev-av">Д</div><div><div class="rev-name">Дмитрий К.</div><div class="rev-date"><span class="il on" data-li="ru">Февраль 2025</span><span class="il" data-li="kz">Ақпан 2025</span><span class="il" data-li="en">February 2025</span></div></div></div></div>
+    <div class="rev rv"><span class="rev-q">"</span><div class="rev-stars">★★★★★</div><p class="rev-text"><span class="il on" data-li="ru">Привела дочку 4 лет. Мадина нашла подход так мастерски, что ребёнок вышел с улыбкой и сам попросил прийти снова.</span><span class="il" data-li="kz">4 жастағы қызымды алып келдім. Мадина шебер тапты — бала күліп шықты.</span><span class="il" data-li="en">Brought my 4-year-old. Madina found the approach so masterfully, the child left smiling and asked to come again.</span></p><div class="rev-person"><div class="rev-av">З</div><div><div class="rev-name">Зарина М.</div><div class="rev-date"><span class="il on" data-li="ru">Январь 2025</span><span class="il" data-li="kz">Қаңтар 2025</span><span class="il" data-li="en">January 2025</span></div></div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <div class="sec-label"><span class="il on" data-li="ru">Запись онлайн</span><span class="il" data-li="kz">Онлайн жазылу</span><span class="il" data-li="en">Online Booking</span></div>
+  <h2 class="sec-title"><span class="il on" data-li="ru">Запишитесь <em>сегодня</em></span><span class="il" data-li="kz"><em>Бүгін</em> жазылыңыз</span><span class="il" data-li="en">Book <em>today</em></span></h2>
+  <div class="contact-grid">
+    <div>
+      <div class="c-item"><div class="c-ico">📍</div><div><div class="c-lbl"><span class="il on" data-li="ru">Адрес</span><span class="il" data-li="kz">Мекенжай</span><span class="il" data-li="en">Address</span></div><div class="c-val">г. Алматы, ул. Байзакова 280, 2 этаж, офис 201</div></div></div>
+      <div class="c-item"><div class="c-ico">📞</div><div><div class="c-lbl"><span class="il on" data-li="ru">Телефон</span><span class="il" data-li="kz">Телефон</span><span class="il" data-li="en">Phone</span></div><div class="c-val">+7 (727) 234-56-78<br>+7 (707) 234-56-78</div></div></div>
+      <div class="c-item"><div class="c-ico">🕐</div><div><div class="c-lbl"><span class="il on" data-li="ru">Часы работы</span><span class="il" data-li="kz">Жұмыс уақыты</span><span class="il" data-li="en">Hours</span></div><div class="c-val"><span class="il on" data-li="ru">Пн–Сб: 09:00–20:00 · Вс: выходной</span><span class="il" data-li="kz">Дс–Сн: 09:00–20:00 · Жс: демалыс</span><span class="il" data-li="en">Mon–Sat: 09:00–20:00 · Sun: closed</span></div></div></div>
+      <div class="c-item"><div class="c-ico">✉️</div><div><div class="c-lbl">Email</div><div class="c-val">info@dentlux.kz</div></div></div>
+    </div>
+    <div>
+      <div class="frow">
+        <div class="fg"><label><span class="il on" data-li="ru">Имя</span><span class="il" data-li="kz">Аты</span><span class="il" data-li="en">Name</span></label><input type="text" placeholder="Ваше имя"></div>
+        <div class="fg"><label><span class="il on" data-li="ru">Телефон</span><span class="il" data-li="kz">Телефон</span><span class="il" data-li="en">Phone</span></label><input type="tel" placeholder="+7 (___) ___-__-__"></div>
+      </div>
+      <div class="fg"><label><span class="il on" data-li="ru">Услуга</span><span class="il" data-li="kz">Қызмет</span><span class="il" data-li="en">Service</span></label>
+        <select><option>Имплантация</option><option>Отбеливание (−50%)</option><option>Виниры</option><option>Брекеты / Invisalign</option><option>Лечение кариеса</option><option>Детская стоматология</option></select>
+      </div>
+      <div class="fg"><label><span class="il on" data-li="ru">Удобная дата</span><span class="il" data-li="kz">Ыңғайлы күн</span><span class="il" data-li="en">Preferred Date</span></label><input type="datetime-local"></div>
+      <div class="fg"><label><span class="il on" data-li="ru">Комментарий</span><span class="il" data-li="kz">Түсіндірме</span><span class="il" data-li="en">Comment</span></label><textarea placeholder="Опишите вашу ситуацию..."></textarea></div>
+      <button class="btn-submit" onclick="submitForm()"><span class="il on" data-li="ru">Отправить заявку</span><span class="il" data-li="kz">Өтінім жіберу</span><span class="il" data-li="en">Send Request</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="mapwrap">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.8!2d76.9376!3d43.2567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDE1JzI0LjEiTiA3NsKwNTYnMTUuNCJF!5e0!3m2!1sru!2skz!4v1" allowfullscreen loading="lazy"></iframe>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div><div class="foot-logo">Dent Lux</div><p class="foot-desc"><span class="il on" data-li="ru">Премиум стоматология в Алматы. Европейские технологии, казахстанское качество.</span><span class="il" data-li="kz">Алматыдағы премиум стоматология. Еуропалық технологиялар, қазақстандық сапа.</span><span class="il" data-li="en">Premium dentistry in Almaty. European technologies, Kazakhstani quality.</span></p></div>
+    <div class="foot-col"><h5><span class="il on" data-li="ru">Услуги</span><span class="il" data-li="kz">Қызметтер</span><span class="il" data-li="en">Services</span></h5><ul><li><a href="#services">Имплантация</a></li><li><a href="#services">Отбеливание −50%</a></li><li><a href="#services">Виниры e.max</a></li><li><a href="#services">Ортодонтия</a></li><li><a href="#services">Детская стоматология</a></li></ul></div>
+    <div class="foot-col"><h5><span class="il on" data-li="ru">Контакты</span><span class="il" data-li="kz">Байланыс</span><span class="il" data-li="en">Contact</span></h5><ul><li><a href="tel:+77272345678">+7 (727) 234-56-78</a></li><li><a href="mailto:info@dentlux.kz">info@dentlux.kz</a></li><li><a href="#">ул. Байзакова 280, Алматы</a></li><li><a href="#">Пн–Сб: 09:00–20:00</a></li></ul></div>
+  </div>
+  <div class="foot-btm"><span>© 2025 Dent Lux. <span class="il on" data-li="ru">Все права защищены.</span><span class="il" data-li="kz">Барлық құқықтар қорғалған.</span><span class="il" data-li="en">All rights reserved.</span></span><span>Алматы, ул. Байзакова 280</span></div>
+</footer>
+
+<script>
+// Countdown
+const deadline = new Date().getTime() + 7*24*60*60*1000;
+function tick(){
+  const d = deadline - new Date().getTime();
+  if(d<0) return;
+  document.getElementById('td').textContent = String(Math.floor(d/86400000)).padStart(2,'0');
+  document.getElementById('th').textContent = String(Math.floor((d%86400000)/3600000)).padStart(2,'0');
+  document.getElementById('tm').textContent = String(Math.floor((d%3600000)/60000)).padStart(2,'0');
+  document.getElementById('ts').textContent = String(Math.floor((d%60000)/1000)).padStart(2,'0');
+}
+tick(); setInterval(tick,1000);
+
+// Language
+function setLang(lang, el) {
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.il').forEach(e=>e.classList.toggle('on', e.getAttribute('data-li')===lang));
+  document.querySelectorAll('[data-lang]').forEach(e=>e.classList.toggle('on', e.getAttribute('data-lang')===lang));
+}
+
+// Modal
+function openModal(){ document.getElementById('modal').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(){ document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+document.getElementById('modal').addEventListener('click', e=>{ if(e.target===document.getElementById('modal')) closeModal(); });
+
+// Submit
+function submitForm(){
+  closeModal();
+  const t=document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),4000);
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('vis'); });
+},{ threshold:0.1 });
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
